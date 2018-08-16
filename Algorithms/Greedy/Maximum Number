@@ -15,14 +15,12 @@ int main(){
    
     string n;
     int k;
-    cin>>n;
-    cin>>k;
+    cin>>n>>k;
     
     int win_size = 0,idx,start=0;
     char mx = ' ';
-    
     for(int i=0;i<n.length();++i){
-     
+
         if(k==0){
            for(int q=i;q<n.length();++q)
               cout<<n[q];
@@ -38,6 +36,7 @@ int main(){
          }
          
           if(win_size == k+1){
+        
              cout<<mx;
              mx = ' ';
              k = k - (idx-start);
@@ -47,7 +46,8 @@ int main(){
              
              if(k == n.length()-idx-1)
                break;
-           }
-    return 0;
+           } 
+      }
+return 0;
 }
     
