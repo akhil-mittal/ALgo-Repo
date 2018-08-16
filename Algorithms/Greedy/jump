@@ -1,2 +1,40 @@
-# Given an array A of non-negative integers, you are initially at the first index of the array. Each element in the array 
-# represents maximum length of jump you can take from that position.Find out if you are able to reach the last index.
+//Given an array A of non-negative integers, you are initially at the first index of the array. Each element in the array** 
+// represents maximum length of jump you can take from that position.Find out if you are able to reach the last index.
+
+/*
+ SAMPLE INPUT 
+4
+1 2 3 4
+
+SAMPLE OUTPUT 
+YES
+
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+   int n;
+   cin>>n;
+   
+   int a[n];
+   
+   for(int i=0;i<n;i++)
+      cin>>a[i];
+   
+   int count = 0;
+   for(int i=n-2;i>=0;--i){
+      if(a[i]>count)
+          count=0;
+      else
+         ++count;
+   }
+   if(count)
+      cout<<"NO";
+   else
+       cout<<"YES";
+   
+   return 0;
+}
