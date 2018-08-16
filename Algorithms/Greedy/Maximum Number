@@ -1,0 +1,53 @@
+//Given a number N and K, find the maximum possible number after deleting K digits from the number N.
+
+/*
+SAMPLE INPUT 
+4312 2
+
+SAMPLE OUTPUT 
+43
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+   
+    string n;
+    int k;
+    cin>>n;
+    cin>>k;
+    
+    int win_size = 0,idx,start=0;
+    char mx = ' ';
+    
+    for(int i=0;i<n.length();++i){
+     
+        if(k==0){
+           for(int q=i;q<n.length();++q)
+              cout<<n[q];
+           break;
+        }
+         
+         if(win_size < k+1){
+            if(mx < n[i]){
+               mx = n[i];
+               idx = i;
+            }
+          ++win_size;
+         }
+         
+          if(win_size == k+1){
+             cout<<mx;
+             mx = ' ';
+             k = k - (idx-start);
+             i = idx;
+             win_size = 0;
+             start = idx + 1;
+             
+             if(k == n.length()-idx-1)
+               break;
+           }
+    return 0;
+}
+    
